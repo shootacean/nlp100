@@ -52,6 +52,28 @@ function q_03()
 }
 
 /**
+ * @return void
+ */
+function q_04()
+{
+    $sentence = 'Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can.';
+    $words = get_word_list($sentence);
+    $map = [];
+    foreach ($words as $i => $w) {
+        $n = 2;
+        if (in_array($i + 1, [1, 5, 6, 7, 8, 9, 15, 16, 19], true)) {
+            $n = 1;
+        }
+        $symbol = substr($w, 0, $n);
+        $map[$symbol] = $i + 1;
+    }
+    // answer
+    foreach ($map as $symbol => $i) {
+        echo "$symbol: $i\n";
+    }
+}
+
+/**
  * Returns an English word-separated array
  *
  * @param string $s
@@ -62,4 +84,4 @@ function get_word_list(string $s)
     return explode(' ', str_replace('.', '', str_replace(',', '', $s)));
 }
 
-q_03();
+q_04();
