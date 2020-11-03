@@ -30,6 +30,16 @@ function q_02()
     echo join('', $tmp), "\n";
 }
 
+function q_03()
+{
+    $sentence = 'Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.';
+    $words = explode(' ', str_replace('.', '', str_replace(',', '', $sentence)));
+    foreach ($words as $w) {
+        echo mb_strlen($w), "\n";
+    }
+}
+
 q_00();
 q_01();
 q_02();
+q_03();
