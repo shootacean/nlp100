@@ -1,10 +1,16 @@
 <?php
 
+/**
+ * @return void
+ */
 function q_00()
 {
     echo strrev("stressed"), "\n";
 }
 
+/**
+ * @return void
+ */
 function q_01()
 {
     $word = 'パタトクカシーー';
@@ -18,6 +24,9 @@ function q_01()
     echo join('', $tmp), "\n";
 }
 
+/**
+ * @return void
+ */
 function q_02()
 {
     $word1 = 'パトカー';
@@ -30,6 +39,9 @@ function q_02()
     echo join('', $tmp), "\n";
 }
 
+/**
+ * @return void
+ */
 function q_03()
 {
     $sentence = 'Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.';
@@ -43,9 +55,10 @@ function q_03()
  * Returns an English word-separated array
  *
  * @param string $s
- * @return false|string[]
+ * @return string[]
  */
-function get_word_list(string $s) {
+function get_word_list(string $s)
+{
     return explode(' ', str_replace('.', '', str_replace(',', '', $s)));
 }
 
