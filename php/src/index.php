@@ -74,6 +74,22 @@ function q_04()
 }
 
 /**
+ * @return void
+ */
+function q_05()
+{
+    $sentence = 'I am an NLPer';
+    $nGrams = n_gram($sentence, 3);
+    $wordNGrams = n_gram_by_word($sentence, 3);
+    foreach ($nGrams as $g) {
+        echo $g, "\n";
+    }
+    foreach ($wordNGrams as $g) {
+        echo $g, "\n";
+    }
+}
+
+/**
  * Returns an English word-separated array
  *
  * @param string $s
@@ -84,4 +100,52 @@ function get_word_list(string $s)
     return explode(' ', str_replace('.', '', str_replace(',', '', $s)));
 }
 
-q_04();
+/**
+ * Generate n-grams
+ *
+ * @param string $s
+ * @param int $n
+ * @return string[]
+ */
+function n_gram(string $s, int $n): array
+{
+    $tmp = [];
+    for ($i = 0; $i < mb_strlen($s) - ($n - 1); $i++) {
+        $tmp[] = mb_substr($s, $i, $n);
+    }
+    return $tmp;
+}
+
+/**
+ * Generate n-grams by word
+ *
+ * @param string $s
+ * @param int $n
+ * @return string[]
+ */
+function n_gram_by_word(string $s, int $n): array
+{
+    $tmp = [];
+    $words = get_word_list($s);
+    for ($i = 0; $i < count($words) - ($n - 1); $i++) {
+        $tmp[] = implode_range(' ', $words, $i, $n);
+    }
+    return $tmp;
+}
+
+/**
+ * Combines elements of an array from a specified range into a string.
+ *
+ * @param string $glue
+ * @param array<mixed> $pieces
+ * @param int $from
+ * @param int $to
+ * @return string
+ */
+function implode_range(string $glue, array $pieces, int $from, int $to)
+{
+    $a = array_slice($pieces, $from, $to);
+    return implode($glue, $a);
+}
+
+q_05();
