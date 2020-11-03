@@ -33,13 +33,20 @@ function q_02()
 function q_03()
 {
     $sentence = 'Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.';
-    $words = explode(' ', str_replace('.', '', str_replace(',', '', $sentence)));
+    $words = get_word_list($sentence);
     foreach ($words as $w) {
         echo mb_strlen($w), "\n";
     }
 }
 
-q_00();
-q_01();
-q_02();
+/**
+ * Returns an English word-separated array
+ *
+ * @param string $s
+ * @return false|string[]
+ */
+function get_word_list(string $s) {
+    return explode(' ', str_replace('.', '', str_replace(',', '', $s)));
+}
+
 q_03();
