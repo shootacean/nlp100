@@ -18,5 +18,18 @@ function q_01()
     echo join('', $tmp), "\n";
 }
 
+function q_02()
+{
+    $word1 = 'パトカー';
+    $word2 = 'タクシー';
+    $tmp = [];
+    for ($i = 0; $i <= mb_strlen($word1); $i++) {
+        $tmp[] = mb_substr($word1, $i, 1);
+        $tmp[] = mb_substr($word2, $i, 1);
+    }
+    echo join('', $tmp), "\n";
+}
+
 q_00();
 q_01();
+q_02();
