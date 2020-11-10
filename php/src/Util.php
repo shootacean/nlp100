@@ -61,4 +61,54 @@ class Util
         $a = array_slice($pieces, $from, $to);
         return implode($glue, $a);
     }
+
+    /**
+     * Output the array to standard output
+     *
+     * @param array<mixed> $a
+     * @return void
+     */
+    public static function outputArray(array $a)
+    {
+        foreach ($a as $k => $v) {
+            echo "key: $k, value: $v", PHP_EOL;
+        }
+        echo PHP_EOL;
+    }
+
+    /**
+     * Returns the summed set of arrays
+     *
+     * @param array<mixed> $a
+     * @param array<mixed> $b
+     * @return array<mixed>
+     */
+    public static function arrayUnion(array $a, array $b)
+    {
+        return array_unique(array_merge($a, $b));
+    }
+
+    /**
+     * Returns a product set of arrays
+     *
+     * @param array<mixed> $a
+     * @param array<mixed> $b
+     * @return array<mixed>
+     */
+    public static function arrayIntersect(array $a, array $b)
+    {
+        return array_unique(array_intersect($a, $b));
+    }
+
+    /**
+     * Returns the difference set of arrays
+     *
+     * @param array<mixed> $a
+     * @param array<mixed> $b
+     * @return array<mixed>
+     */
+    public static function arrayDiff(array $a, array $b)
+    {
+        return array_unique(array_diff($a, $b));
+    }
 }

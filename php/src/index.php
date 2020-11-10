@@ -102,7 +102,31 @@ class Solver
             echo $g, "\n";
         }
     }
+
+    /**
+     * @return void
+     */
+    public function solveQ6()
+    {
+        $sentenceX = 'paraparaparadise';
+        $sentenceY = 'paragraph';
+        $x = $this->util->splitNGram($sentenceX, 2);
+        $y = $this->util->splitNGram($sentenceY, 2);
+        echo "x: ", PHP_EOL;
+        $this->util->outputArray($x);
+        echo "y: ", PHP_EOL;
+        $this->util->outputArray($y);
+        echo "union: ", PHP_EOL;
+        $this->util->outputArray($this->util::arrayUnion($x, $y));
+        echo "intersect: ", PHP_EOL;
+        $this->util->outputArray($this->util::arrayIntersect($x, $y));
+        echo "diff: ", PHP_EOL;
+        $this->util->outputArray($this->util::arrayDiff($x, $y));
+        // has se
+        echo "x has 'se': ", in_array('se', $x, true) ? 'true' : 'false', PHP_EOL;
+        echo "y has 'se': ", in_array('se', $y, true) ? 'true' : 'false', PHP_EOL;
+    }
 }
 
 $solver = new Solver(new Util());
-$solver->solveQ5();
+$solver->solveQ6();
