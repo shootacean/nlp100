@@ -161,7 +161,33 @@ class Solver
         echo $ciphered, PHP_EOL;
         echo $cipher($ciphered), PHP_EOL;
     }
+
+    /**
+     * Typoglycemia
+     *
+     * @return void
+     */
+    public function solveQ9()
+    {
+        $sentence = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind . ";
+        $words = $this->util::getWordList($sentence);
+        $tmp = [];
+        foreach ($words as $word) {
+            if (strlen($word) <= 4) {
+                $tmp[] = $word;
+                continue;
+            }
+
+            $chars = str_split($word);
+            $head = array_shift($chars);
+            $tail = array_pop($chars);
+            shuffle($chars);
+
+            $tmp[] = $head . implode('', array_values($chars)) . $tail;
+        }
+        echo implode(' ', $tmp);
+    }
 }
 
 $solver = new Solver(new Util());
-$solver->solveQ8();
+$solver->solveQ9();
