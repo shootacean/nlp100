@@ -137,7 +137,31 @@ class Solver
         };
         echo $solve(12, '気温', 22.4), PHP_EOL;
     }
+
+    /**
+     * @return void
+     */
+    public function solveQ8()
+    {
+        $cipher = function ($message) {
+            $a = str_split($message);
+            $tmp = [];
+            foreach ($a as $s) {
+                if (!ctype_lower($s)) {
+                    $tmp[] = $s;
+                    continue;
+                }
+                $tmp[] = chr(219 - ord($s));
+            }
+            return implode('', $tmp);
+        };
+        $message = 'Hello, World';
+        echo $message, PHP_EOL;
+        $ciphered = $cipher($message);
+        echo $ciphered, PHP_EOL;
+        echo $cipher($ciphered), PHP_EOL;
+    }
 }
 
 $solver = new Solver(new Util());
-$solver->solveQ7();
+$solver->solveQ8();
