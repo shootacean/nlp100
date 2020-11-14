@@ -126,7 +126,18 @@ class Solver
         echo "x has 'se': ", in_array('se', $x, true) ? 'true' : 'false', PHP_EOL;
         echo "y has 'se': ", in_array('se', $y, true) ? 'true' : 'false', PHP_EOL;
     }
+
+    /**
+     * @return void
+     */
+    public function solveQ7()
+    {
+        $solve = function ($x, $y, $z) {
+            return "{$x}時の{$y}は{$z}";
+        };
+        echo $solve(12, '気温', 22.4), PHP_EOL;
+    }
 }
 
 $solver = new Solver(new Util());
-$solver->solveQ6();
+$solver->solveQ7();
