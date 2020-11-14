@@ -2,6 +2,9 @@
 
 require 'Util.php';
 
+/**
+ * 第1章: 準備運動
+ */
 class Solver
 {
     /**
@@ -15,6 +18,7 @@ class Solver
     }
 
     /**
+     * 00. 文字列の逆順
      * @return void
      */
     public function solveQ0()
@@ -23,6 +27,7 @@ class Solver
     }
 
     /**
+     * 01. 「パタトクカシーー」
      * @return void
      */
     public function solveQ1()
@@ -39,6 +44,7 @@ class Solver
     }
 
     /**
+     * 02. 「パトカー」＋「タクシー」＝「パタトクカシーー」
      * @return void
      */
     public function solveQ2()
@@ -54,6 +60,7 @@ class Solver
     }
 
     /**
+     * 03. 円周率
      * @return void
      */
     public function solveQ3()
@@ -66,6 +73,7 @@ class Solver
     }
 
     /**
+     * 04. 元素記号
      * @return void
      */
     public function solveQ4()
@@ -88,6 +96,7 @@ class Solver
     }
 
     /**
+     * 05. n-gram
      * @return void
      */
     public function solveQ5()
@@ -104,6 +113,7 @@ class Solver
     }
 
     /**
+     * 06. 集合
      * @return void
      */
     public function solveQ6()
@@ -128,6 +138,7 @@ class Solver
     }
 
     /**
+     * 07. テンプレートによる文生成
      * @return void
      */
     public function solveQ7()
@@ -139,6 +150,7 @@ class Solver
     }
 
     /**
+     * 08. 暗号文
      * @return void
      */
     public function solveQ8()
@@ -163,8 +175,7 @@ class Solver
     }
 
     /**
-     * Typoglycemia
-     *
+     * 09. Typoglycemia
      * @return void
      */
     public function solveQ9()
